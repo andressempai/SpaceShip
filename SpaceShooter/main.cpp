@@ -1,12 +1,17 @@
 #include <SFML\Graphics.hpp>
+#include <iostream>
+#include "SpaceShip.h"
 
 int main()
 {
-	/** SFML Objects **/
+	/* SFML Objects */
 	sf::RenderWindow Game_Window(sf::VideoMode(720, 480), "SpaceShooter");
 	sf::Event Game_Event;
 
-	/** Game Loop **/
+	/* Custom Objects*/
+	SpaceShip* _spaceShip = new SpaceShip();
+
+	/* Game Loop */
 	while (Game_Window.isOpen())
 	{
 
@@ -21,9 +26,9 @@ int main()
 
 		/* Render */
 		Game_Window.clear();
+		Game_Window.draw(_spaceShip->DrawShip());
 		Game_Window.display();
 	}
-
 
 	return 0;
 }
