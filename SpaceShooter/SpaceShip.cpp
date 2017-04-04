@@ -18,6 +18,18 @@ SpaceShip::SpaceShip()
 
 	/* Flame Frames Animation */
 	DefineFlameFrameAnimation();
+
+	/* Modify Sprites */
+		/* Ship Sprite*/
+	Ship.setOrigin(Ship.getTextureRect().height / 2, Ship.getTextureRect().width / 2);
+	Ship.setScale(0.2f, 0.2f);
+	Ship.setPosition(360, 416);
+
+		/* Flame Sprite */
+	Flame.setOrigin(32, 64);
+	Flame.setRotation(180.0f);
+	Flame.setPosition(360, 451);
+	Flame.setScale(0.15f, 0.15f);
 }
 
 SpaceShip::~SpaceShip()

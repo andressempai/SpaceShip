@@ -43,8 +43,8 @@ int main()
 
 		/* Render */
 		Game_Window.clear();
-		//Game_Window.draw(_spaceShip->DrawShip());
 		Game_Window.draw(_spaceShip->DrawFlame());
+		Game_Window.draw(_spaceShip->DrawShip());
 		Game_Window.display();
 	}
 
