@@ -1,6 +1,6 @@
 #pragma once
 #include <SFML\Graphics.hpp>
-#include <string>
+#include <iostream>
 
 class SpaceShip
 {
@@ -8,8 +8,11 @@ public:
 	SpaceShip();
 	~SpaceShip();
 	sf::Sprite DrawShip();
+	sf::Sprite DrawFlame();
+	void FlameAnimation();
 private:
 	sf::Sprite Ship;
 	sf::Texture ShipTexture;
-	std::string Message;
+	sf::Sprite Flame;
+	sf::Texture FlameTexture;
 };
