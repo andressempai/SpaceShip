@@ -10,12 +10,27 @@ int main()
 	/* Custom Objects*/
 	SpaceShip* _spaceShip = new SpaceShip();
 
+	/* Variables */
+	int FlameIter = 1;
+
 	/* Game Seting */
 	Game_Window.setFramerateLimit(60);
 
 	/* Game Loop */
 	while (Game_Window.isOpen())
 	{
+
+		/* Loop Animation*/
+		if (FlameIter < 32)
+		{
+			++FlameIter;
+		}
+		else
+		{
+			FlameIter = 1;
+		}
+
+		_spaceShip->FlameAnimation(FlameIter);
 
 		/* Managing Events */
 		while (Game_Window.pollEvent(Game_Event))
