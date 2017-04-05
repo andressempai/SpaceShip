@@ -4,7 +4,7 @@
 int main()
 {
 	/* SFML Objects */
-	sf::RenderWindow Game_Window(sf::VideoMode(720, 480), "SpaceShooter");
+	sf::RenderWindow Game_Window(sf::VideoMode(1280, 720), "SpaceShooter");
 	sf::Event Game_Event;
 
 	/* Custom Objects*/
@@ -19,7 +19,23 @@ int main()
 	/* Game Loop */
 	while (Game_Window.isOpen())
 	{
+		/* Managing Events */
+		while (Game_Window.pollEvent(Game_Event))
+		{
+			/* Window Closed Event */
+			if (Game_Event.type == sf::Event::Closed)
+			{
+				Game_Window.close();
+			}
 
+			/* Mouse Move Event */
+			if (Game_Event.type == sf::Event::MouseMoved)
+			{
+				_spaceShip->MouseMove_Animation(Game_Event.mouseMove.x, Game_Event.mouseMove.y);
+			}
+		}
+
+		/* Game Logic */
 		/* Loop Animation*/
 		if (FlameIter < 32)
 		{
@@ -32,21 +48,16 @@ int main()
 
 		_spaceShip->FlameAnimation(FlameIter);
 
-		/* Managing Events */
-		while (Game_Window.pollEvent(Game_Event))
-		{
-			if (Game_Event.type == sf::Event::Closed)
-			{
-				Game_Window.close();
-			}
-		}
-
 		/* Render */
 		Game_Window.clear();
 		Game_Window.draw(_spaceShip->DrawFlame());
 		Game_Window.draw(_spaceShip->DrawShip());
+		Game_Window.draw(_spaceShip->DrawShipPivot());
 		Game_Window.display();
 	}
+
+	/* Clear all Pointers */
+	delete _spaceShip;
 
 	return 0;
 }

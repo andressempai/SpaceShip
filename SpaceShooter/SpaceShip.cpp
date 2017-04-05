@@ -19,17 +19,24 @@ SpaceShip::SpaceShip()
 	/* Flame Frames Animation */
 	DefineFlameFrameAnimation();
 
-	/* Modify Sprites */
+	/* Sprites And Objects Initial States */
+		/* ShipPivot */
+	ShipPivot.setRadius(5.0f);
+	ShipPivot.setFillColor(sf::Color::Red);
+	ShipPivot.setOrigin(ShipPivot.getRadius() / 2, ShipPivot.getRadius() / 2);
+	ShipPivot.setPosition(float(1280 / 2), float(1280 / 2));
+
+
 		/* Ship Sprite*/
 	Ship.setOrigin(Ship.getTextureRect().height / 2, Ship.getTextureRect().width / 2);
-	Ship.setScale(0.2f, 0.2f);
-	Ship.setPosition(360, 416);
+	Ship.setScale(0.3f, 0.3f);
+	Ship.setPosition(ShipPivot.getPosition());
 
 		/* Flame Sprite */
 	Flame.setOrigin(32, 64);
 	Flame.setRotation(180.0f);
-	Flame.setPosition(360, 451);
-	Flame.setScale(0.15f, 0.15f);
+	Flame.setPosition(Ship.getPosition().x, Ship.getPosition().y + 53);
+	Flame.setScale(0.3f, 0.3f);
 }
 
 SpaceShip::~SpaceShip()
@@ -44,6 +51,11 @@ sf::Sprite SpaceShip::DrawShip()
 sf::Sprite SpaceShip::DrawFlame()
 {
 	return Flame;
+}
+
+sf::CircleShape SpaceShip::DrawShipPivot()
+{
+	return ShipPivot;
 }
 
 void SpaceShip::DefineFlameFrameAnimation()
@@ -86,4 +98,11 @@ void SpaceShip::FlameAnimation(int _iter)
 {
 	/* Set Flame Animation */
 	Flame.setTextureRect(sf::IntRect(FlameFrameCoord[_iter].x, FlameFrameCoord[_iter].y, 64, 128));
+}
+
+void SpaceShip::MouseMove_Animation(float _x, float _y)
+{
+	ShipPivot.setPosition(_x, _y);
+	Ship.setPosition(ShipPivot.getPosition());
+	Flame.setPosition(Ship.getPosition().x, Ship.getPosition().y + 53);
 }
