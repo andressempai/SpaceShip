@@ -1,6 +1,6 @@
 #include "SpaceShip.h"
 
-SpaceShip::SpaceShip()
+SpaceShip::SpaceShip(float _x, float _y)
 {
 	/* Ship Texture */
 	if (!ShipTexture.loadFromFile("Data/SpaceShip.png"))
@@ -24,8 +24,7 @@ SpaceShip::SpaceShip()
 	ShipPivot.setRadius(5.0f);
 	ShipPivot.setFillColor(sf::Color::Red);
 	ShipPivot.setOrigin(ShipPivot.getRadius() / 2, ShipPivot.getRadius() / 2);
-	ShipPivot.setPosition(float(1280 / 2), float(1280 / 2));
-
+	ShipPivot.setPosition(_x, _y);
 
 		/* Ship Sprite*/
 	Ship.setOrigin(Ship.getTextureRect().height / 2, Ship.getTextureRect().width / 2);
@@ -105,4 +104,14 @@ void SpaceShip::MouseMove_Animation(float _x, float _y)
 	ShipPivot.setPosition(_x, _y);
 	Ship.setPosition(ShipPivot.getPosition());
 	Flame.setPosition(Ship.getPosition().x, Ship.getPosition().y + 53);
+}
+
+float SpaceShip::ShipGunGetPosX()
+{
+	return Ship.getPosition().x;
+}
+
+float SpaceShip::ShipGunGetPosY()
+{
+	return Ship.getPosition().y - ((Ship.getTextureRect().height / 2) * 0.3);
 }

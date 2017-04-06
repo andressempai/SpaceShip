@@ -5,11 +5,11 @@
 class Bullet
 {
 public:
-	Bullet();
+	Bullet(float, float);
 	~Bullet();
 	sf::Sprite DrawBullet();
-	void SetToShipPosition(float, float);
 	void SetVelocity(float);
+	bool IsOutLimit();
 private:
 	/* Private Attributes */
 	sf::Sprite BulletSprite;

@@ -6,13 +6,15 @@
 class SpaceShip
 {
 public:
-	SpaceShip();
+	SpaceShip(float, float);
 	~SpaceShip();
 	sf::Sprite DrawShip();
 	sf::Sprite DrawFlame();
 	sf::CircleShape DrawShipPivot();
 	void FlameAnimation(int);
 	void MouseMove_Animation(float, float);
+	float ShipGunGetPosX();
+	float ShipGunGetPosY();
 private:
 	/* Private Attributes */
 	sf::Sprite Ship;

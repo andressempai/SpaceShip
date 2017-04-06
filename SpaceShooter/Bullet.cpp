@@ -1,6 +1,6 @@
 #include "Bullet.h"
 
-Bullet::Bullet()
+Bullet::Bullet(float _x, float _y)
 {
 	/* Bullet Texture */
 	if (!BulletTexture.loadFromFile("Data/Bullet.png"))
@@ -13,6 +13,7 @@ Bullet::Bullet()
 		/* Bullet Sprites */
 	BulletSprite.setOrigin(33.0f, 33.0f);
 	BulletSprite.setScale(0.25f, 0.25f);
+	BulletSprite.setPosition(_x, _y);
 }
 
 Bullet::~Bullet()
@@ -24,12 +25,22 @@ sf::Sprite Bullet::DrawBullet()
 	return BulletSprite;
 }
 
-void Bullet::SetToShipPosition(float _x, float _y)
-{
-	BulletSprite.setPosition(_x, _y);
-}
-
 void Bullet::SetVelocity(float _vel)
 {
-	BulletSprite.move(0.0f, -_vel);
+	if (BulletSprite.getPosition().y > 0.0f)
+	{
+		BulletSprite.move(0.0f, -_vel);
+	}
+}
+
+bool Bullet::IsOutLimit()
+{
+	if (BulletSprite.getPosition().y < 20.0f)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
 }

@@ -1,4 +1,6 @@
 #include <SFML\Graphics.hpp>
+#include <algorithm>
+#include <list>
 #include "SpaceShip.h"
 #include "Bullet.h"
 
@@ -9,8 +11,8 @@ int main()
 	sf::Event Game_Event;
 
 	/* Custom Objects*/
-	SpaceShip* _spaceShip = new SpaceShip();
-	Bullet* _bullet = new Bullet();
+	SpaceShip* _spaceShip = new SpaceShip(float(1280 / 2), float(1280 / 2));
+	std::list<Bullet*> _bullets;
 
 	/* Variables */
 	int FlameIter = 1;
@@ -42,10 +44,7 @@ int main()
 				&&
 				Game_Event.mouseButton.button == sf::Mouse::Left)
 			{
-				_bullet->SetToShipPosition(
-					_spaceShip->DrawShip().getPosition().x,
-					_spaceShip->DrawShip().getPosition().y -
-					_spaceShip->DrawShip().getTextureRect().height / 2 * 0.3);
+				_bullets.push_back(new Bullet(_spaceShip->ShipGunGetPosX(), _spaceShip->ShipGunGetPosY()));
 			}
 		}
 
@@ -63,19 +62,46 @@ int main()
 		_spaceShip->FlameAnimation(FlameIter);
 
 		/* Bullet Animation */
-		_bullet->SetVelocity(BulletVelocity);
+		if (!_bullets.empty())
+		{
+			for (std::list<Bullet*>::iterator Aiter = _bullets.begin(); Aiter != _bullets.end(); ++Aiter)
+			{
+				(*Aiter)->SetVelocity(BulletVelocity);
+			}
+		}
 
 		/* Render */
 		Game_Window.clear();
-		Game_Window.draw(_bullet->DrawBullet());
+
+			/* Bullets Draw */
+		if (!_bullets.empty())
+		{
+			for (std::list<Bullet*>::iterator Diter = _bullets.begin(); Diter != _bullets.end();)
+			{
+				if ((*Diter)->IsOutLimit())
+				{
+					delete *Diter;
+					//*Diter = nullptr;
+					Diter = _bullets.erase(std::remove(_bullets.begin(),
+						_bullets.end(),
+						static_cast<Bullet*>(NULL)));
+				}
+				else
+				{
+					//Diter++;
+					Game_Window.draw((*Diter)->DrawBullet());
+				}
+			}
+		}
+
+			/* Ship  Draw */
 		Game_Window.draw(_spaceShip->DrawFlame());
 		Game_Window.draw(_spaceShip->DrawShip());
 		Game_Window.draw(_spaceShip->DrawShipPivot());
+
+			/* Display All */
 		Game_Window.display();
 	}
-
-	/* Clear all Pointers */
-	delete _spaceShip;
 
 	return 0;
 }
