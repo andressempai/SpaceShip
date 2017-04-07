@@ -4,6 +4,15 @@
 #include "SpaceShip.h"
 #include "Bullet.h"
 
+void DeleteBulletPointers(Bullet*& _pBullet)
+{
+	if (!_pBullet->IsOutLimit())
+	{
+		delete _pBullet;
+		_pBullet = 0;
+	}
+}
+
 int main()
 {
 	/* SFML Objects */
@@ -62,36 +71,31 @@ int main()
 		_spaceShip->FlameAnimation(FlameIter);
 
 		/* Bullet Animation */
-		if (!_bullets.empty())
+		for (std::list<Bullet*>::iterator Aiter = _bullets.begin(); Aiter != _bullets.end(); ++Aiter)
 		{
-			for (std::list<Bullet*>::iterator Aiter = _bullets.begin(); Aiter != _bullets.end(); ++Aiter)
+			(*Aiter)->SetVelocity(BulletVelocity);
+		}
+
+		/* Delete Bullet Pointers */
+		for (std::list<Bullet*>::iterator iter = _bullets.begin(); iter != _bullets.end(); ++iter)
+		{
+			if ((*iter)->IsOutLimit())
 			{
-				(*Aiter)->SetVelocity(BulletVelocity);
+				delete (*iter);
+				*iter = 0;
 			}
 		}
+		//std::for_each(_bullets.begin(), _bullets.end(), DeleteBulletPointers);
+		_bullets.erase(std::remove(_bullets.begin(), _bullets.end(), static_cast<Bullet*>(0)), _bullets.end());
+		std::cout << "Number of Bullets are: " << _bullets.size() << std::endl;
 
 		/* Render */
 		Game_Window.clear();
 
 			/* Bullets Draw */
-		if (!_bullets.empty())
+		for (std::list<Bullet*>::iterator Diter = _bullets.begin(); Diter != _bullets.end(); ++Diter)
 		{
-			for (std::list<Bullet*>::iterator Diter = _bullets.begin(); Diter != _bullets.end();)
-			{
-				if ((*Diter)->IsOutLimit())
-				{
-					delete *Diter;
-					//*Diter = nullptr;
-					Diter = _bullets.erase(std::remove(_bullets.begin(),
-						_bullets.end(),
-						static_cast<Bullet*>(NULL)));
-				}
-				else
-				{
-					//Diter++;
-					Game_Window.draw((*Diter)->DrawBullet());
-				}
-			}
+			Game_Window.draw((*Diter)->DrawBullet());
 		}
 
 			/* Ship  Draw */

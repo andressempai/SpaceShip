@@ -33,9 +33,9 @@ void Bullet::SetVelocity(float _vel)
 	}
 }
 
-bool Bullet::IsOutLimit()
+bool Bullet::IsOutLimit() const
 {
-	if (BulletSprite.getPosition().y < 20.0f)
+	if (BulletSprite.getPosition().y < 1.0f)
 	{
 		return true;
 	}

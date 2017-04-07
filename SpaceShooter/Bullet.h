@@ -9,7 +9,7 @@ public:
 	~Bullet();
 	sf::Sprite DrawBullet();
 	void SetVelocity(float);
-	bool IsOutLimit();
+	bool IsOutLimit() const;
 private:
 	/* Private Attributes */
 	sf::Sprite BulletSprite;
