@@ -1,3 +1,9 @@
-﻿  Bullet.cpp
-  SpaceShooter.vcxproj -> D:\AmbuCG\Projects\AmbuCG\Personal\Games\SFML\SpaceShip\x64\Debug\SpaceShooter.exe
-  SpaceShooter.vcxproj -> D:\AmbuCG\Projects\AmbuCG\Personal\Games\SFML\SpaceShip\x64\Debug\SpaceShooter.pdb (Partial PDB)
+﻿  SpaceShip.cpp
+e:\projects\games_projects\sfml\spaceshooter\spaceship\spaceshooter\spaceship.cpp(30): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+e:\projects\games_projects\sfml\spaceshooter\spaceship\spaceshooter\spaceship.cpp(116): warning C4244: 'return': conversión de 'double' a 'float'; posible pérdida de datos
+  main.cpp
+e:\projects\games_projects\sfml\spaceshooter\spaceship\spaceshooter\main.cpp(48): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+  Bullet.cpp
+  Generando código...
+  LINK : no se encontró E:\Projects\Games_Projects\SFML\SpaceShooter\SpaceShip\x64\Debug\SpaceShooter.exe o no lo generó el último vínculo incremental; ejecutando vínculo completo
+sfml-graphics-d.lib(sfml-graphics-d-2.dll) : fatal error LNK1112: tipo de equipo del módulo 'X86' en conflicto con tipo de equipo de destino 'x64'
