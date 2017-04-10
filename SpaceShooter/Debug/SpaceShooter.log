@@ -1,6 +1,4 @@
-﻿  main.cpp
-e:\projects\games_projects\sfml\spaceshooter\spaceship\spaceshooter\main.cpp(41): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-  AlienShip.cpp
-  Generando código...
+﻿  AlienShip.cpp
+e:\projects\games_projects\sfml\spaceshooter\spaceship\spaceshooter\alienship.cpp(19): warning C4244: 'argumento': conversión de 'unsigned int' a 'float'; posible pérdida de datos
   SpaceShooter.vcxproj -> E:\Projects\Games_Projects\SFML\SpaceShooter\SpaceShip\Debug\SpaceShooter.exe
   SpaceShooter.vcxproj -> E:\Projects\Games_Projects\SFML\SpaceShooter\SpaceShip\Debug\SpaceShooter.pdb (Partial PDB)

@@ -9,9 +9,12 @@ public:
 
 	/* Setters */
 	void Update();
+	void Move(float);
 
 	/* Getters */
 	sf::Sprite GetAlienShip() const;
+	sf::Vector2f GetIncrement() const;
+	sf::Vector2f GetInitialPosition();
 
 private:
 	/* Private Attributes */

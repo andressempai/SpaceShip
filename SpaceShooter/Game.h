@@ -12,13 +12,19 @@ public:
 	void HandleInput();
 	void Update();
 	void Render();
-	void FPS();
+	void RestartClock();
 
 	/* Getters */
 	Game_Window* GetWindow();
+	sf::Time GetElapsed();
 
 private:
 	/* Attributes */
 	Game_Window sp_window;
 	AlienShip sp_alienShip;
+	sf::Clock sp_clock;
+	sf::Time sp_timeElapsed;
+
+	/* Private Setters Methods */
+	void FPS();
 };
