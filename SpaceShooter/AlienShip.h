@@ -1,19 +1,24 @@
 #pragma once
 #include <SFML\Graphics.hpp>
-#include <iostream>
 
 class AlienShip
 {
 public:
 	AlienShip();
 	~AlienShip();
-	sf::Sprite DrawAlienShip() const;
+
+	/* Setters */
+	void Update();
+
+	/* Getters */
+	sf::Sprite GetAlienShip() const;
 
 private:
 	/* Private Attributes */
-	sf::Sprite Ship;
-	sf::Texture ShipTexture;
+	sf::Sprite sp_alienShip;
+	sf::Texture sp_alienShipTexture;
+	sf::Vector2f sp_increment;
 
 	/* Private Methods */
-	
+	void Setup();
 };

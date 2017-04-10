@@ -10,6 +10,7 @@ Game::~Game()
 
 void Game::HandleInput()
 {
+	sf::Event sp_inputEvent;
 }
 
 void Game::Update()
@@ -20,8 +21,13 @@ void Game::Update()
 void Game::Render()
 {
 	sp_window.BeforeDraw();
-	//sp_window.Draw();
+	sp_window.Draw(sp_alienShip.GetAlienShip());
 	sp_window.DisplayDraw();
+}
+
+void Game::FPS()
+{
+	sp_window.FPS(60);
 }
 
 Game_Window* Game::GetWindow()

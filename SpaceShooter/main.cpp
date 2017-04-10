@@ -3,7 +3,6 @@
 #include <list>
 #include "SpaceShip.h"
 #include "Bullet.h"
-#include "AlienShip.h"
 
 int main()
 {
@@ -14,7 +13,6 @@ int main()
 	/* Custom Objects*/
 	SpaceShip* _spaceShip = new SpaceShip(float(1280 / 2), float(1280 / 2));
 	std::list<Bullet*> _bullets;
-	AlienShip* _alienShip = new AlienShip();
 
 	/* Variables */
 	int FlameIter = 1;
@@ -95,9 +93,6 @@ int main()
 		Game_Window.draw(_spaceShip->DrawFlame());
 		Game_Window.draw(_spaceShip->DrawShip());
 		Game_Window.draw(_spaceShip->DrawShipPivot());
-
-			/* Alien Ship Draw */
-		Game_Window.draw(_alienShip->DrawAlienShip());
 
 			/* Display All */
 		Game_Window.display();

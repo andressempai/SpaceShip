@@ -19,6 +19,7 @@ public:
 
 	/* Setters */
 	void ToggleFullScreen();
+	void FPS(const unsigned int);
 
 	/* Getters */
 	sf::Vector2u GetWindowSize();

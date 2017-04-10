@@ -78,6 +78,11 @@ void Game_Window::ToggleFullScreen()
 	Create();
 }
 
+void Game_Window::FPS(const unsigned int _fps)
+{
+	sp_window.setFramerateLimit(_fps);
+}
+
 sf::Vector2u Game_Window::GetWindowSize()
 {
 	return sp_windowSize;
