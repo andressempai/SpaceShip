@@ -128,12 +128,16 @@
   <ItemGroup>
     <ClCompile Include="AlienShip.cpp" />
     <ClCompile Include="Bullet.cpp" />
+    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="Game_Window.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="SpaceShip.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AlienShip.h" />
     <ClInclude Include="Bullet.h" />
+    <ClInclude Include="Game.h" />
+    <ClInclude Include="Game_Window.h" />
     <ClInclude Include="SpaceShip.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
