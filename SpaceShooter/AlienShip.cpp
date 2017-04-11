@@ -24,10 +24,6 @@ void AlienShip::Setup()
 }
 
 /* Setters */
-void AlienShip::Update()
-{
-}
-
 void AlienShip::Move(float _felapsed)
 {
 	sp_alienShip.setPosition(

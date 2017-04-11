@@ -23,6 +23,7 @@ public:
 
 	/* Getters */
 	sf::Vector2u GetWindowSize();
+	sf::Vector2f GetMouseMove();
 	bool IsFullScreen();
 	bool IsDone();
 
@@ -31,6 +32,7 @@ private:
 	sf::RenderWindow sp_window;
 	sf::Vector2u sp_windowSize;
 	std::string sp_windowTitle;
+	sf::Vector2f sp_mouseMove;
 	bool sp_IsFullScreen;
 	bool sp_IsDone;
 

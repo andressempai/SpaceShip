@@ -8,7 +8,6 @@ public:
 	~AlienShip();
 
 	/* Setters */
-	void Update();
 	void Move(float);
 
 	/* Getters */

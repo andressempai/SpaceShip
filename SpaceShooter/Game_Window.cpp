@@ -53,6 +53,13 @@ void Game_Window::Update()
 		{
 			ToggleFullScreen();
 		}
+
+		if (sp_event.type == sf::Event::MouseMoved)
+		{
+			sp_mouseMove = sf::Vector2f(
+				sp_event.mouseMove.x,
+				sp_event.mouseMove.y);
+		}
 	}
 }
 
@@ -83,9 +90,15 @@ void Game_Window::FPS(const unsigned int _fps)
 	sp_window.setFramerateLimit(_fps);
 }
 
+/* Getters */
 sf::Vector2u Game_Window::GetWindowSize()
 {
 	return sp_windowSize;
+}
+
+sf::Vector2f Game_Window::GetMouseMove()
+{
+	return sp_mouseMove;
 }
 
 bool Game_Window::IsFullScreen()

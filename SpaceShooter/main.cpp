@@ -1,9 +1,7 @@
 #include <SFML\Graphics.hpp>
-#include <iostream>
 #include <algorithm>
 #include <list>
 #include "Game.h"
-#include "SpaceShip.h"
 #include "Bullet.h"
 
 int main()
@@ -24,18 +22,6 @@ int main()
 }
 
 /*
-if (FlameIter < 32)
-{
-++FlameIter;
-}
-else
-{
-FlameIter = 1;
-}
-
-_spaceShip->FlameAnimation(FlameIter);
-
-
 for (std::list<Bullet*>::iterator Aiter = _bullets.begin(); Aiter != _bullets.end(); ++Aiter)
 {
 	(*Aiter)->SetVelocity(BulletVelocity);
