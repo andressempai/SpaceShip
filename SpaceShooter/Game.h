@@ -21,10 +21,11 @@ public:
 private:
 	/* Attributes */
 	Game_Window sp_window;
-	AlienShip sp_alienShip;
+	AlienShip* sp_alienShip;
 	sf::Clock sp_clock;
 	sf::Time sp_timeElapsed;
 
 	/* Private Setters Methods */
+	void Setup();
 	void FPS();
 };

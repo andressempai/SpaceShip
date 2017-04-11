@@ -2,11 +2,17 @@
 
 Game::Game() : sp_window("SpaceShooter", sf::Vector2u(1280, 720))
 {
-	FPS();
+	Setup();
 }
 
 Game::~Game()
 {
+}
+
+void Game::Setup()
+{
+	sp_alienShip = new AlienShip();
+	FPS();
 }
 
 void Game::HandleInput()
@@ -18,13 +24,13 @@ void Game::Update()
 {
 	float fElapsed = GetElapsed().asSeconds();
 	sp_window.Update();
-	sp_alienShip.Move(fElapsed);
+	sp_alienShip->Move(fElapsed);
 }
 
 void Game::Render()
 {
 	sp_window.BeforeDraw();
-	sp_window.Draw(sp_alienShip.GetAlienShip());
+	sp_window.Draw(sp_alienShip->GetAlienShip());
 	sp_window.DisplayDraw();
 }
 

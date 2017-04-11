@@ -20,7 +20,7 @@ void AlienShip::Setup()
 	sp_alienShip.setPosition(
 		1280 / 2,
 		(sp_alienShipTexture.getSize().y / 2) * 0.4f);
-	sp_increment = sf::Vector2f(500.0f, 500.0f);
+	sp_increment = sf::Vector2f(0.0f, 0.0f);
 }
 
 /* Setters */
@@ -31,7 +31,7 @@ void AlienShip::Update()
 void AlienShip::Move(float _felapsed)
 {
 	sp_alienShip.setPosition(
-		sp_alienShip.getPosition().x,
+		sp_alienShip.getPosition().x + (GetIncrement().x * _felapsed),
 		sp_alienShip.getPosition().y + (GetIncrement().y * _felapsed));
 }
 
