@@ -1,41 +1,52 @@
 #include "Bullet.h"
 
-Bullet::Bullet(float _x, float _y)
+Bullet::Bullet(sf::Vector2f& _bulletinitialpos)
 {
-	/* Bullet Texture */
-	if (!BulletTexture.loadFromFile("Data/Bullet.png"))
-	{
-		std::cout << "File not found" << std::endl;
-	}
-	BulletSprite.setTexture(BulletTexture);
+	Setup();
+	sp_bulletInitialPosition = _bulletinitialpos;
+	sp_bullet.setPosition(sp_bulletInitialPosition);
+}
 
-	/* Sprites And Objects Initial States */
-		/* Bullet Sprites */
-	BulletSprite.setOrigin(33.0f, 33.0f);
-	BulletSprite.setScale(0.25f, 0.25f);
-	BulletSprite.setPosition(_x, _y);
+void Bullet::Setup()
+{
+	/* Bullet Sprite Initial State */
+	sp_bulletTexture.loadFromFile("Data/Bullet.png");
+	sp_bullet.setTexture(sp_bulletTexture);
+	sp_bullet.setOrigin(33.0f, 33.0f);
+	sp_bullet.setScale(0.25f, 0.25f);
+	sp_increment = sf::Vector2f(0.0f, 500.0f);
 }
 
 Bullet::~Bullet()
 {
 }
 
-sf::Sprite Bullet::DrawBullet()
+/* Setters */
+void Bullet::Move(float _felapsed)
 {
-	return BulletSprite;
+	if (sp_bullet.getPosition().y > 0.0f)
+	{
+		sp_bullet.setPosition(
+			sp_bullet.getPosition().x - (GetIncrement().x),
+			sp_bullet.getPosition().y - (GetIncrement().y * _felapsed)
+		);
+	}
 }
 
-void Bullet::SetVelocity(float _vel)
+/* Getters */
+sf::Sprite Bullet::GetBullet()
 {
-	if (BulletSprite.getPosition().y > 0.0f)
-	{
-		BulletSprite.move(0.0f, -_vel);
-	}
+	return sp_bullet;
+}
+
+sf::Vector2f Bullet::GetIncrement()
+{
+	return sp_increment;
 }
 
 bool Bullet::IsOutLimit()
 {
-	if (BulletSprite.getPosition().y < 1.0f)
+	if (sp_bullet.getPosition().y < 1.0f)
 	{
 		return true;
 	}

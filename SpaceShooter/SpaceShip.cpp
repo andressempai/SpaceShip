@@ -86,6 +86,7 @@ void SpaceShip::Move(float _felapsed, float _x, float _y)
 	sp_flame.setPosition(
 		sp_ship.getPosition().x,
 		sp_ship.getPosition().y + 53);
+	GunPosition();
 }
 
 void SpaceShip::GunPosition()

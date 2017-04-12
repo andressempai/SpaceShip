@@ -20,12 +20,14 @@ public:
 	/* Setters */
 	void ToggleFullScreen();
 	void FPS(const unsigned int);
+	void SetLeftClickInput();
 
 	/* Getters */
 	sf::Vector2u GetWindowSize();
 	sf::Vector2f GetMouseMove();
 	bool IsFullScreen();
 	bool IsDone();
+	bool GetLeftClickInput();
 
 private:
 	/* Attributes */
@@ -35,6 +37,7 @@ private:
 	sf::Vector2f sp_mouseMove;
 	bool sp_IsFullScreen;
 	bool sp_IsDone;
+	bool sp_leftClick;
 
 	/* Methods */
 	void Setup(const std::string&, const sf::Vector2u&);

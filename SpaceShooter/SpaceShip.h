@@ -11,7 +11,6 @@ public:
 	/* Setters */
 	void FlameAnimation(int);
 	void Move(float, float, float);
-	void GunPosition();
 
 	/* Getters */
 	sf::Sprite GetShip() const;
@@ -30,5 +29,6 @@ private:
 	/* Private Methods */
 	/* Setters */
 	void Setup();
+	void GunPosition();
 	void FlameFrameCoord();
 };

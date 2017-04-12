@@ -21,6 +21,7 @@ void Game_Window::Setup(const std::string& _spwindowtitle, const sf::Vector2u& _
 	sp_windowSize = _spwindowsize;
 	sp_IsFullScreen = false;
 	sp_IsDone = false;
+	sp_leftClick = false;
 	Create();
 }
 
@@ -41,6 +42,8 @@ void Game_Window::Destroy()
 void Game_Window::Update()
 {
 	sf::Event sp_event;
+
+	/* Window Event */
 	while (sp_window.pollEvent(sp_event))
 	{
 		if (sp_event.type == sf::Event::Closed)
@@ -54,11 +57,19 @@ void Game_Window::Update()
 			ToggleFullScreen();
 		}
 
+		/* Mouse Event */
 		if (sp_event.type == sf::Event::MouseMoved)
 		{
 			sp_mouseMove = sf::Vector2f(
 				sp_event.mouseMove.x,
 				sp_event.mouseMove.y);
+		}
+
+		if (sp_event.type == sf::Event::MouseButtonPressed
+			&&
+			sp_event.mouseButton.button == sf::Mouse::Left)
+		{
+
 		}
 	}
 }
@@ -90,6 +101,11 @@ void Game_Window::FPS(const unsigned int _fps)
 	sp_window.setFramerateLimit(_fps);
 }
 
+void Game_Window::SetLeftClickInput()
+{
+	sp_leftClick = !sp_leftClick;
+}
+
 /* Getters */
 sf::Vector2u Game_Window::GetWindowSize()
 {
@@ -109,4 +125,9 @@ bool Game_Window::IsFullScreen()
 bool Game_Window::IsDone()
 {
 	return sp_IsDone;
+}
+
+bool Game_Window::GetLeftClickInput()
+{
+	return sp_leftClick;
 }

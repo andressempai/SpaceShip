@@ -1,8 +1,11 @@
 #pragma once
+#include <iostream>
+#include <algorithm>
+#include <list>
 #include "Game_Window.h"
 #include "SpaceShip.h"
 #include "AlienShip.h"
-#include <iostream>
+#include "Bullet.h"
 
 class Game
 {
@@ -25,9 +28,11 @@ private:
 	Game_Window sp_window;
 	SpaceShip* sp_ship;
 	AlienShip* sp_alienShip;
+	std::list<Bullet*> sp_bullets;
 	sf::Clock sp_clock;
 	sf::Time sp_timeElapsed;
 	int sp_flameIter;
+	bool sp_leftClick;
 
 	/* Private Setters Methods */
 	void Setup();
