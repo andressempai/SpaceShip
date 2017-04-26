@@ -32,7 +32,7 @@ private:
 	sf::Clock sp_clock;
 	sf::Time sp_timeElapsed;
 	int sp_flameIter;
-	bool sp_leftClick;
+	bool sp_shipShoot;
 
 	/* Private Setters Methods */
 	void Setup();

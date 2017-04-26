@@ -1,9 +1,9 @@
-﻿  SpaceShip.cpp
-d:\ambucg\projects\ambucg\personal\games\sfml\spaceship\spaceshooter\spaceship.cpp(20): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+﻿  Game_Window.cpp
+d:\ambucg\projects\ambucg\personal\games\sfml\spaceship\spaceshooter\game_window.cpp(65): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   Game.cpp
-d:\ambucg\projects\ambucg\personal\games\sfml\spaceship\spaceshooter\game.cpp(23): warning C4101: 'sp_inputEvent': unreferenced local variable
   Generating Code...
-  Skipping... (no relevant changes detected)
+  Compiling...
   main.cpp
+  Generating Code...
   SpaceShooter.vcxproj -> D:\AmbuCG\Projects\AmbuCG\Personal\Games\SFML\SpaceShip\x64\Debug\SpaceShooter.exe
   SpaceShooter.vcxproj -> D:\AmbuCG\Projects\AmbuCG\Personal\Games\SFML\SpaceShip\x64\Debug\SpaceShooter.pdb (Partial PDB)

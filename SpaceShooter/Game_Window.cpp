@@ -69,7 +69,7 @@ void Game_Window::Update()
 			&&
 			sp_event.mouseButton.button == sf::Mouse::Left)
 		{
-
+			sp_leftClick = true;
 		}
 	}
 }

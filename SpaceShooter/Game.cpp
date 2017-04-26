@@ -14,17 +14,15 @@ void Game::Setup()
 	sp_ship = new SpaceShip();
 	sp_alienShip = new AlienShip();
 	sp_flameIter = 0;
-	sp_leftClick = false;
+	sp_shipShoot = false;
 	FPS();
 }
 
 void Game::HandleInput()
 {
-	sf::Event sp_inputEvent;
-
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+	if (sp_window.GetLeftClickInput())
 	{
-		sp_leftClick = true;
+		sp_shipShoot = true;
 	}
 }
 
@@ -57,10 +55,11 @@ void Game::Update()
 	/* End Flame Animation */
 
 	/* Bullets Creation */
-	if (sp_leftClick)
+	if (sp_shipShoot)
 	{
 		sp_bullets.push_back(new Bullet(sf::Vector2f(sp_ship->GetShipGunPosition())));
-		sp_leftClick = false;
+		sp_shipShoot = false;
+		sp_window.SetLeftClickInput();
 	}
 
 	/* Bullets Animation */
