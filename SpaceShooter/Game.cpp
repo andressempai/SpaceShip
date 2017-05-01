@@ -63,7 +63,6 @@ void Game::Update()
 	}
 
 	/* Bullets Animation */
-	std::cout << "Bullet List Size: " << sp_bullets.size() << std::endl;
 	for (std::list<Bullet*>::iterator iter = sp_bullets.begin(); iter != sp_bullets.end(); ++iter)
 	{
 		(*iter)->Move(fElapsed);
@@ -106,6 +105,7 @@ void Game::Render()
 
 	/* Alien Ship Draw */
 	sp_window.Draw(sp_alienShip->GetAlienShip());
+	sp_window.Draw(sp_alienShip->GetLifeBar());
 
 	/* Display All Objects */
 	sp_window.DisplayDraw();

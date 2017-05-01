@@ -12,6 +12,7 @@ public:
 
 	/* Getters */
 	sf::Sprite GetAlienShip() const;
+	sf::RectangleShape GetLifeBar() const;
 	sf::Vector2f GetIncrement() const;
 	sf::Vector2f GetInitialPosition();
 
@@ -20,6 +21,8 @@ private:
 	sf::Sprite sp_alienShip;
 	sf::Texture sp_alienShipTexture;
 	sf::Vector2f sp_increment;
+	sf::RectangleShape sp_lifeBar;
+	float sp_lifePercentage;
 
 	/* Private Methods */
 	void Setup();
